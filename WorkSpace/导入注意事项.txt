@@ -1,0 +1,2 @@
+WorkSpack为idea的一个项目，相当于eclipse的工作空间，LearningWeb 为idea的一个Moudle 相当于eclipse的项目
+ 
