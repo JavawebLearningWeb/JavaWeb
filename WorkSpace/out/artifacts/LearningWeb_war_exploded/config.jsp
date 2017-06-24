@@ -4,6 +4,8 @@
   Date: 2017/6/24
   Time: 13:21
   To change this template use File | Settings | File Templates.
+
+  config 可以直接在别的jsp页面通过在head 使用 <%@include file="config.jsp"%> 来使用bootstrap 以及核心标签库
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>

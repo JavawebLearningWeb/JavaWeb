@@ -21,6 +21,9 @@
             -webkit-background-size: cover;
         }
     </style>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/museo.css">
+    <link rel="stylesheet" href="css/font-sl.css">
 </head>
 <body>
 <div class="container ">
@@ -42,6 +45,7 @@
 
 </div> <!-- /container --><br><br><br><br><br><br>
 <h3 class="form-signup-heading">Don't have an account ? <a href="signup.jsp">Signup</a></h3>
-
+<script src="js/login.js"></script>
+<script src="js/forgetpassword.js"></script>
 </body>
 </html>
