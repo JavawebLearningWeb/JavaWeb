@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="database_rjxt@localhost" uuid="ce8226b6-9c6b-4e5e-8afe-b80a6e94f55a">
+    <data-source source="LOCAL" name="learningweb@localhost" uuid="220be65e-8870-4e7d-9efe-8d394f9c15c4">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/database_rjxt</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/learningweb</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

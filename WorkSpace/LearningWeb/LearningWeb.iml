@@ -33,5 +33,6 @@
     <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 9.0.0.M17" level="application_server_libraries" />
     <orderEntry type="library" exported="" name="Hibernate 5.2.10-5.2.10" level="project" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="lib " level="project" />
   </component>
 </module>

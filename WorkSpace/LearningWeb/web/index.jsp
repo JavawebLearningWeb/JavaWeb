@@ -12,6 +12,6 @@
  <%@include file="config.jsp"%>
   </head>
   <body>
-
+<p>success</p>
   </body>
 </html>
