@@ -1,20 +1,47 @@
 package Entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 /**
- * Created by ycbhci on 2017/6/26.
+ * Created by 79333 on 2017/6/24.
  */
 @Entity
-@Table(name = "data", schema = "learningweb", catalog = "")
+@Table(name = "data", schema = "learningweb")
 public class DataEntity {
     private String id;
     private String name;
     private String address;
     private String kind;
+    private String chapterid;
+    private ChapterEntity chapterEntity;
+
+    @Basic
+    @Column(name = "chapterid")
+    public String getChapterid() {
+        return chapterid;
+    }
+
+    public void setChapterid(String chapterid) {
+        this.chapterid = chapterid;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "chapterid",insertable=false,updatable=false)
+    public ChapterEntity getChapterEntity() {
+        return chapterEntity;
+    }
+
+    public void setChapterEntity(ChapterEntity chapterEntity) {
+        chapterEntity = chapterEntity;
+    }
+
 
     @Id
-    @Column(name = "id", nullable = false, length = 50)
+    @GeneratedValue(generator = "paymentableGenerator")
+    @GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
+    @Column(name = "id")
     public String getId() {
         return id;
     }
@@ -23,8 +50,9 @@ public class DataEntity {
         this.id = id;
     }
 
+
     @Basic
-    @Column(name = "name", nullable = false, length = 50)
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -34,7 +62,7 @@ public class DataEntity {
     }
 
     @Basic
-    @Column(name = "address", nullable = false, length = 50)
+    @Column(name = "address")
     public String getAddress() {
         return address;
     }
@@ -44,7 +72,7 @@ public class DataEntity {
     }
 
     @Basic
-    @Column(name = "kind", nullable = false, length = 50)
+    @Column(name = "kind")
     public String getKind() {
         return kind;
     }

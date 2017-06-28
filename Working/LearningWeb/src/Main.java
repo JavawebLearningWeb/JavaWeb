@@ -1,3 +1,4 @@
+import Util.HibernateUtils;
 import org.hibernate.HibernateException;
 import org.hibernate.Metamodel;
 import org.hibernate.query.Query;
@@ -31,6 +32,9 @@ public class Main {
     }
 
     public static void main(final String[] args) throws Exception {
+
+
+
         final Session session = getSession();
         try {
             System.out.println("querying all the managed entities...");

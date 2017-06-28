@@ -1,12 +1,14 @@
 package Entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 /**
- * Created by ycbhci on 2017/6/26.
+ * Created by 79333 on 2017/6/24.
  */
 @Entity
-@Table(name = "teacher", schema = "learningweb", catalog = "")
+@Table(name = "teacher", schema = "learningweb")
 public class TeacherEntity {
     private String id;
     private String username;
@@ -16,9 +18,13 @@ public class TeacherEntity {
     private String status;
     private String email;
     private String major;
+    private String picture;
+    private String introduction;
 
     @Id
-    @Column(name = "id", nullable = false, length = 50)
+    @GeneratedValue(generator = "paymentableGenerator")
+    @GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
+    @Column(name = "id")
     public String getId() {
         return id;
     }
@@ -28,7 +34,26 @@ public class TeacherEntity {
     }
 
     @Basic
-    @Column(name = "username", nullable = false, length = 50)
+    @Column(name = "introduction")
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
+
+    @Basic
+    @Column(name = "picture")
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+    @Basic
+    @Column(name = "username")
     public String getUsername() {
         return username;
     }
@@ -38,7 +63,7 @@ public class TeacherEntity {
     }
 
     @Basic
-    @Column(name = "name", nullable = false, length = 50)
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -48,7 +73,7 @@ public class TeacherEntity {
     }
 
     @Basic
-    @Column(name = "password", nullable = false, length = 50)
+    @Column(name = "password")
     public String getPassword() {
         return password;
     }
@@ -58,7 +83,7 @@ public class TeacherEntity {
     }
 
     @Basic
-    @Column(name = "gender", nullable = false, length = 50)
+    @Column(name = "gender")
     public String getGender() {
         return gender;
     }
@@ -68,7 +93,7 @@ public class TeacherEntity {
     }
 
     @Basic
-    @Column(name = "status", nullable = false, length = 50)
+    @Column(name = "status")
     public String getStatus() {
         return status;
     }
@@ -78,7 +103,7 @@ public class TeacherEntity {
     }
 
     @Basic
-    @Column(name = "email", nullable = false, length = 50)
+    @Column(name = "email")
     public String getEmail() {
         return email;
     }
@@ -88,7 +113,7 @@ public class TeacherEntity {
     }
 
     @Basic
-    @Column(name = "major", nullable = false, length = 50)
+    @Column(name = "major")
     public String getMajor() {
         return major;
     }

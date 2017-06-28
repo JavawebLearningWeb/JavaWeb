@@ -1,9 +1,10 @@
 package Entity;
 
+import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 /**
- * Created by ycbhci on 2017/6/26.
+ * Created by 79333 on 2017/6/24.
  */
 @Entity
 @Table(name = "chapter", schema = "learningweb", catalog = "")
@@ -11,9 +12,24 @@ public class ChapterEntity {
     private String id;
     private String name;
     private String number;
+    private String courseid;
+    private CourseEntity courseEntity;
+
+
+    @ManyToOne
+    @JoinColumn(name = "courseid", insertable=false, updatable=false)
+    public CourseEntity getCourseEntity() {
+        return courseEntity;
+    }
+
+    public void setCourseEntity(CourseEntity courseEntity) {
+        this.courseEntity = courseEntity;
+    }
 
     @Id
-    @Column(name = "id", nullable = false, length = 50)
+    @GeneratedValue(generator = "paymentableGenerator")
+    @GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
+    @Column(name = "id")
     public String getId() {
         return id;
     }
@@ -23,7 +39,17 @@ public class ChapterEntity {
     }
 
     @Basic
-    @Column(name = "name", nullable = false, length = 50)
+    @Column(name = "courseid")
+    public String getCourseid() {
+        return courseid;
+    }
+
+    public void setCourseid(String courseid) {
+        this.courseid = courseid;
+    }
+
+    @Basic
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -33,7 +59,7 @@ public class ChapterEntity {
     }
 
     @Basic
-    @Column(name = "number", nullable = false, length = 50)
+    @Column(name = "number")
     public String getNumber() {
         return number;
     }

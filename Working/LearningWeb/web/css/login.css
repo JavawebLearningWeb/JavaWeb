@@ -98,7 +98,15 @@ input:focus { outline:0; border:0; }
 form.form-signin { width: 385px;
     margin: 0 auto; }
 .form-signin-heading {
-    font-size:22px;
+    font-size:26px;
+    color:#FFFFFF;
+    text-align:center;
+    margin:16px auto 70px;
+}
+form.form-signin { width: 385px;
+    margin: 0 auto; }
+.form-signin-tittle {
+    font-size:20px;
     color:#FFFFFF;
     text-align:center;
     margin:16px auto 70px;

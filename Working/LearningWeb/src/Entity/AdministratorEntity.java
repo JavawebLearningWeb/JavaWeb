@@ -1,9 +1,11 @@
 package Entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 /**
- * Created by ycbhci on 2017/6/26.
+ * Created by 79333 on 2017/6/24.
  */
 @Entity
 @Table(name = "administrator", schema = "learningweb", catalog = "")
@@ -13,7 +15,9 @@ public class AdministratorEntity {
     private String password;
 
     @Id
-    @Column(name = "id", nullable = false, length = 50)
+    @GeneratedValue(generator = "paymentableGenerator")
+    @GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
+    @Column(name = "id")
     public String getId() {
         return id;
     }
@@ -23,7 +27,7 @@ public class AdministratorEntity {
     }
 
     @Basic
-    @Column(name = "username", nullable = false, length = 50)
+    @Column(name = "username")
     public String getUsername() {
         return username;
     }
@@ -33,7 +37,7 @@ public class AdministratorEntity {
     }
 
     @Basic
-    @Column(name = "password", nullable = false, length = 50)
+    @Column(name = "password")
     public String getPassword() {
         return password;
     }

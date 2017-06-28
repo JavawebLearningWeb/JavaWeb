@@ -26,5 +26,6 @@
         <mapping class="Entity.ProgressEntity"/>
         <mapping class="Entity.StudentEntity"/>
         <mapping class="Entity.TeacherEntity"/>
+        <mapping class="Entity.AddcourseEntity"/>
     </session-factory>
 </hibernate-configuration>

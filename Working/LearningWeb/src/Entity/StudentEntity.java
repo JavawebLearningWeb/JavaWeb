@@ -1,10 +1,12 @@
 package Entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.sql.Date;
 
 /**
- * Created by ycbhci on 2017/6/26.
+ * Created by 79333 on 2017/6/24.
  */
 @Entity
 @Table(name = "student", schema = "learningweb", catalog = "")
@@ -19,9 +21,22 @@ public class StudentEntity {
     private String grade;
     private String email;
     private String major;
+    private String picture;
+
+    @Basic
+    @Column(name = "picture")
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
 
     @Id
-    @Column(name = "id", nullable = false, length = 50)
+    @GeneratedValue(generator = "paymentableGenerator")
+    @GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
+    @Column(name = "id")
     public String getId() {
         return id;
     }
@@ -31,7 +46,7 @@ public class StudentEntity {
     }
 
     @Basic
-    @Column(name = "username", nullable = false, length = 50)
+    @Column(name = "username")
     public String getUsername() {
         return username;
     }
@@ -41,7 +56,7 @@ public class StudentEntity {
     }
 
     @Basic
-    @Column(name = "password", nullable = false, length = 50)
+    @Column(name = "password")
     public String getPassword() {
         return password;
     }
@@ -51,7 +66,7 @@ public class StudentEntity {
     }
 
     @Basic
-    @Column(name = "name", nullable = false, length = 50)
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -61,7 +76,7 @@ public class StudentEntity {
     }
 
     @Basic
-    @Column(name = "birthday", nullable = true)
+    @Column(name = "birthday")
     public Date getBirthday() {
         return birthday;
     }
@@ -71,7 +86,7 @@ public class StudentEntity {
     }
 
     @Basic
-    @Column(name = "gendar", nullable = false, length = 50)
+    @Column(name = "gendar")
     public String getGendar() {
         return gendar;
     }
@@ -81,7 +96,7 @@ public class StudentEntity {
     }
 
     @Basic
-    @Column(name = "status", nullable = false, length = 50)
+    @Column(name = "status")
     public String getStatus() {
         return status;
     }
@@ -91,7 +106,7 @@ public class StudentEntity {
     }
 
     @Basic
-    @Column(name = "grade", nullable = false, length = 50)
+    @Column(name = "grade")
     public String getGrade() {
         return grade;
     }
@@ -101,7 +116,7 @@ public class StudentEntity {
     }
 
     @Basic
-    @Column(name = "email", nullable = false, length = 50)
+    @Column(name = "email")
     public String getEmail() {
         return email;
     }
@@ -111,7 +126,7 @@ public class StudentEntity {
     }
 
     @Basic
-    @Column(name = "major", nullable = false, length = 50)
+    @Column(name = "major")
     public String getMajor() {
         return major;
     }
@@ -156,3 +171,4 @@ public class StudentEntity {
         return result;
     }
 }
+

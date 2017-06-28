@@ -1,18 +1,37 @@
 package Entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 /**
- * Created by ycbhci on 2017/6/26.
+ * Created by 79333 on 2017/6/24.
  */
 @Entity
 @Table(name = "course", schema = "learningweb", catalog = "")
 public class CourseEntity {
     private String id;
     private String name;
+    private String teacherid;
+    private TeacherEntity teacherEntity;
+    private String picture;
+    private String introduction;
+
+
+    @ManyToOne
+    @JoinColumn(name = "teacherid", insertable=false, updatable=false)
+    public TeacherEntity getTeacherEntity() {
+        return teacherEntity;
+    }
+
+    public void setTeacherEntity(TeacherEntity teacherEntity) {
+        this.teacherEntity = teacherEntity;
+    }
 
     @Id
-    @Column(name = "id", nullable = false, length = 50)
+    @GeneratedValue(generator = "paymentableGenerator")
+    @GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
+    @Column(name = "id")
     public String getId() {
         return id;
     }
@@ -22,13 +41,43 @@ public class CourseEntity {
     }
 
     @Basic
-    @Column(name = "name", nullable = false, length = 50)
+    @Column(name = "introduction")
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
+
+    @Basic
+    @Column(name = "picture")
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    @Basic
+    @Column(name = "name")
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Basic
+    @Column(name = "teacherid")
+    public String getTeacherid() {
+        return teacherid;
+    }
+
+    public void setTeacherid(String teacherid) {
+        this.teacherid = teacherid;
     }
 
     @Override

@@ -1,9 +1,11 @@
 package Entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 /**
- * Created by ycbhci on 2017/6/26.
+ * Created by 79333 on 2017/6/24.
  */
 @Entity
 @Table(name = "exam", schema = "learningweb", catalog = "")
@@ -11,9 +13,23 @@ public class ExamEntity {
     private String id;
     private String answer;
     private String address;
+    private String chapterid;
+    private ChapterEntity chapterEntity;
+
+    @ManyToOne
+    @JoinColumn(name = "chapterid", insertable=false,updatable=false)
+    public ChapterEntity getChapterEntity() {
+        return chapterEntity;
+    }
+
+    public void setChapterEntity(ChapterEntity chapterEntity) {
+        this.chapterEntity = chapterEntity;
+    }
 
     @Id
-    @Column(name = "id", nullable = false, length = 50)
+    @GeneratedValue(generator = "paymentableGenerator")
+    @GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
+    @Column(name = "id")
     public String getId() {
         return id;
     }
@@ -23,7 +39,7 @@ public class ExamEntity {
     }
 
     @Basic
-    @Column(name = "answer", nullable = false, length = 50)
+    @Column(name = "answer")
     public String getAnswer() {
         return answer;
     }
@@ -33,7 +49,17 @@ public class ExamEntity {
     }
 
     @Basic
-    @Column(name = "address", nullable = false, length = 50)
+    @Column(name = "chapterid")
+    public String getChapterid() {
+        return chapterid;
+    }
+
+    public void setChapterid(String chapterid) {
+        this.chapterid = chapterid;
+    }
+
+    @Basic
+    @Column(name = "address")
     public String getAddress() {
         return address;
     }

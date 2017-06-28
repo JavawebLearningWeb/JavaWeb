@@ -1,4 +1,5 @@
-<%--
+<%@ page import="Page.AdministratorPage" %>
+<%@ page import="DAO.AdministratorDAO" %><%--
   Created by IntelliJ IDEA.
   User: ycbhci
   Date: 2017/6/26
@@ -11,6 +12,7 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <p> Success
+
   </body>
 </html>
