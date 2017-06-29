@@ -1,10 +1,8 @@
 package DAO;
 
+import Entity.AddcourseEntity;
 import Entity.CourseEntity;
-import Page.Course;
-import Page.CoursePage;
-import Page.ProgressPage;
-import Page.TeacherPage;
+import Page.*;
 import Util.HibernateUtils;
 import org.hibernate.Session;
 
@@ -40,6 +38,38 @@ public class CDAO {
                     }
                     course.setCnum(hashSet.size());
                 }
+                else
+                    course.setCnum(0);
+                courseList.add(course);
+            }
+        }
+        else
+            courseList = null;
+        session.getTransaction().commit();
+        HibernateUtils.closeSession(session);
+        return courseList;
+    }
+
+
+    public List<Course> Get1() {
+        Session session = null;
+        session = HibernateUtils.getSession();
+        session.beginTransaction();
+        CourseDAO courseDAO = new CourseDAO();
+        List<Course> courseList = new ArrayList();
+        List<CoursePage> coursePageList = courseDAO.GetAll();
+        if (coursePageList != null) {
+            for (int i = 0; i < coursePageList.size(); i++) {
+                Course course = new Course();
+                course.setCp(coursePageList.get(i));
+                TeacherDAO teacherDAO = new TeacherDAO();
+                TeacherPage teacherPage = teacherDAO.GetById(course.getCp().getTeacherid());
+                course.setTname(teacherPage.getName());
+                course.setTusername(teacherPage.getUsername());
+                LearnDAO learnDAO = new LearnDAO();
+                List<LearnPage> learnPageList = learnDAO.GetAllByColumn("courseid",course.getCp().getId());
+                if(learnPageList!=null)
+                    course.setCnum(learnPageList.size());
                 else
                     course.setCnum(0);
                 courseList.add(course);

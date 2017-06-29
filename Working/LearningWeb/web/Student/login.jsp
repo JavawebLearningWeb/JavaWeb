@@ -11,9 +11,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up|淘课-基于知识地图的多元化学习网站</title>
-    <link rel='stylesheet prefetch' href='css/sign_log/reset.css'>
-    <link rel="stylesheet" type="text/css" href="css/sign_log/default.css">
-    <link rel="stylesheet" type="text/css" href="css/sign_log/styles.css">
+    <link rel='stylesheet prefetch' href='../css/sign_log/reset.css'>
+    <link rel="stylesheet" type="text/css" href="../css/sign_log/default.css">
+    <link rel="stylesheet" type="text/css" href="../css/sign_log/styles.css">
     <%@include file="navbar.jsp"%>
 </head>
 <body>

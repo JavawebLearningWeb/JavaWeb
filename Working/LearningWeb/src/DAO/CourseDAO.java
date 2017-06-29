@@ -26,6 +26,7 @@ public class CourseDAO {
             courseEntity.setTeacherid(coursePage.getTeacherid());
             courseEntity.setIntroduction(coursePage.getIntroduction());
             courseEntity.setPicture(coursePage.getPicture());
+            courseEntity.setKind(coursePage.getKind());
 
             /*BeanUtils.copyProperties(coursePage, courseEntity);*/
 
@@ -77,6 +78,7 @@ public class CourseDAO {
             courseEntity.setTeacherid(coursePage.getTeacherid());
             courseEntity.setIntroduction(coursePage.getIntroduction());
             courseEntity.setPicture(coursePage.getPicture());
+            courseEntity.setKind(coursePage.getKind());
             /*BeanUtils.copyProperties(coursePage, courseEntity);*/
 
             session.update(courseEntity);
@@ -107,6 +109,7 @@ public class CourseDAO {
                 coursePage.setTeacherid(courseEntity.getTeacherid());
                 coursePage.setIntroduction(courseEntity.getIntroduction());
                 coursePage.setPicture(courseEntity.getPicture());
+                coursePage.setKind(courseEntity.getKind());
                 /*BeanUtils.copyProperties(courseEntity, coursePage);*/
                 coursePageList.add(coursePage);
             }
@@ -127,6 +130,7 @@ public class CourseDAO {
         coursePage.setTeacherid(courseEntity.getTeacherid());
         coursePage.setIntroduction(courseEntity.getIntroduction());
         coursePage.setPicture(courseEntity.getPicture());
+        coursePage.setKind(courseEntity.getKind());
         /*BeanUtils.copyProperties(courseEntity, coursePage);*/
         session.getTransaction().commit();
         HibernateUtils.closeSession(session);
@@ -149,6 +153,7 @@ public class CourseDAO {
             coursePage.setTeacherid(s.get(0).getTeacherid());
             coursePage.setIntroduction(s.get(0).getIntroduction());
             coursePage.setPicture(s.get(0).getPicture());
+            coursePage.setKind(s.get(0).getKind());
         }
         HibernateUtils.closeSession(session);
         return coursePage;
@@ -172,6 +177,7 @@ public class CourseDAO {
                 coursePage.setTeacherid(courseEntity.getTeacherid());
                 coursePage.setIntroduction(courseEntity.getIntroduction());
                 coursePage.setPicture(courseEntity.getPicture());
+                coursePage.setKind(courseEntity.getKind());
                 /*BeanUtils.copyProperties(courseEntity, coursePage);*/
                 coursePageList.add(coursePage);
             }

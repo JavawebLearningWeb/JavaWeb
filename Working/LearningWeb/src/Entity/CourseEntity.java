@@ -16,8 +16,17 @@ public class CourseEntity {
     private TeacherEntity teacherEntity;
     private String picture;
     private String introduction;
+    private String kind;
 
+    @Basic
+    @Column(name = "kind")
+    public String getKind() {
+        return kind;
+    }
 
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
     @ManyToOne
     @JoinColumn(name = "teacherid", insertable=false, updatable=false)
     public TeacherEntity getTeacherEntity() {

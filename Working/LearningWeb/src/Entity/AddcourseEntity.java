@@ -15,8 +15,50 @@ public class AddcourseEntity {
     private String teacherid;
     private TeacherEntity teacherEntity;
     private String course;
+    private String precourseid1;
+    private String precourseid2;
+    private String precourseid3;
+    private String precourseid4;
 
+    @Basic
+    @Column(name = "precourseid1")
+    public String getPrecourseid1() {
+        return precourseid1;
+    }
 
+    public void setPrecourseid1(String precourseid1) {
+        this.precourseid1 = precourseid1;
+    }
+
+    @Basic
+    @Column(name = "precourseid2")
+    public String getPrecourseid2() {
+        return precourseid2;
+    }
+
+    public void setPrecourseid2(String precourseid2) {
+        this.precourseid2 = precourseid2;
+    }
+
+    @Basic
+    @Column(name = "precourseid3")
+    public String getPrecourseid3() {
+        return precourseid3;
+    }
+
+    public void setPrecourseid3(String precourseid3) {
+        this.precourseid3 = precourseid3;
+    }
+
+    @Basic
+    @Column(name = "precourseid4")
+    public String getPrecourseid4() {
+        return precourseid4;
+    }
+
+    public void setPrecourseid4(String precourseid4) {
+        this.precourseid4 = precourseid4;
+    }
 
     @ManyToOne
     @JoinColumn(name = "teacherid", insertable=false, updatable=false)

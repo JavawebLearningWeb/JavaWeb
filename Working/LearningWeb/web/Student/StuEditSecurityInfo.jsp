@@ -45,7 +45,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label"> 用户名</label>
                             <div class="col-sm-5">
-                            <input type="password" class="form-control" value="${sessionScope.studentpage.username}" readonly>
+                            <input type="text" class="form-control" value="${sessionScope.studentpage.username}" readonly>
                             </div>
 
 
@@ -54,7 +54,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label"> 新密码</label>
                             <div class="col-sm-5">
-                                <input type="text" id="password1" class="form-control" name="password" placeholder="Please input new password" onfocus="Clear()" >
+                                <input type="password" id="password1" class="form-control" name="password" placeholder="Please input new password" onfocus="Clear()" >
                             </div>
 
 

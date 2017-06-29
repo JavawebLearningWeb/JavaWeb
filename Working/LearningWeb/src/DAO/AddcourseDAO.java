@@ -12,6 +12,7 @@ import java.util.List;
  * Created by 79333 on 2017/6/26.
  */
 public class AddcourseDAO {
+
     public boolean Add(AddcoursePage addcoursePage) {
 
         boolean flag = false;
@@ -25,6 +26,10 @@ public class AddcourseDAO {
             addcourseEntity.setTeacherid(addcoursePage.getTeacherid());
             /*BeanUtils.copyProperties(addcoursePage, addcourseEntity);*/
             addcourseEntity.setCourse(addcoursePage.getCourse());
+            addcourseEntity.setPrecourseid1(addcoursePage.getPrecourseid1());
+            addcourseEntity.setPrecourseid2(addcoursePage.getPrecourseid2());
+            addcourseEntity.setPrecourseid3(addcoursePage.getPrecourseid3());
+            addcourseEntity.setPrecourseid4(addcoursePage.getPrecourseid4());
 
             session.save(addcourseEntity);
             session.getTransaction().commit();
@@ -73,6 +78,10 @@ public class AddcourseDAO {
             addcourseEntity.setTeacherid(addcoursePage.getTeacherid());
             /*BeanUtils.copyProperties(addcoursePage, addcourseEntity);*/
             addcourseEntity.setCourse(addcoursePage.getCourse());
+            addcourseEntity.setPrecourseid1(addcoursePage.getPrecourseid1());
+            addcourseEntity.setPrecourseid2(addcoursePage.getPrecourseid2());
+            addcourseEntity.setPrecourseid3(addcoursePage.getPrecourseid3());
+            addcourseEntity.setPrecourseid4(addcoursePage.getPrecourseid4());
             session.update(addcourseEntity);
             session.getTransaction().commit();
             flag = true;
@@ -101,6 +110,10 @@ public class AddcourseDAO {
                 addcoursePage.setTeacherid(addcourseEntity.getTeacherid());
                 /*BeanUtils.copyProperties(addcourseEntity, addcoursePage);*/
                 addcoursePage.setCourse(addcourseEntity.getCourse());
+                addcoursePage.setPrecourseid1(addcourseEntity.getPrecourseid1());
+                addcoursePage.setPrecourseid2(addcourseEntity.getPrecourseid2());
+                addcoursePage.setPrecourseid3(addcourseEntity.getPrecourseid3());
+                addcoursePage.setPrecourseid4(addcourseEntity.getPrecourseid4());
                 addcoursePageList.add(addcoursePage);
             }
         }
@@ -118,6 +131,10 @@ public class AddcourseDAO {
         addcoursePage.setResult(addcourseEntity.getResult());
         addcoursePage.setTeacherid(addcourseEntity.getTeacherid());
         addcoursePage.setCourse(addcourseEntity.getCourse());
+        addcoursePage.setPrecourseid1(addcourseEntity.getPrecourseid1());
+        addcoursePage.setPrecourseid2(addcourseEntity.getPrecourseid2());
+        addcoursePage.setPrecourseid3(addcourseEntity.getPrecourseid3());
+        addcoursePage.setPrecourseid4(addcourseEntity.getPrecourseid4());
         /*BeanUtils.copyProperties(addcourseEntity, addcoursePage);*/
         HibernateUtils.closeSession(session);
         return addcoursePage;
@@ -137,6 +154,10 @@ public class AddcourseDAO {
             addcoursePage.setResult(s.get(0).getResult());
             addcoursePage.setTeacherid(s.get(0).getTeacherid());
             addcoursePage.setCourse(s.get(0).getCourse());
+            addcoursePage.setPrecourseid1(s.get(0).getPrecourseid1());
+            addcoursePage.setPrecourseid2(s.get(0).getPrecourseid2());
+            addcoursePage.setPrecourseid3(s.get(0).getPrecourseid3());
+            addcoursePage.setPrecourseid4(s.get(0).getPrecourseid4());
         }
         HibernateUtils.closeSession(session);
         return addcoursePage;
@@ -158,6 +179,10 @@ public class AddcourseDAO {
                 addcoursePage.setTeacherid(addcourseEntity.getTeacherid());
                 addcoursePage.setResult(addcourseEntity.getResult());
                 addcoursePage.setCourse(addcourseEntity.getCourse());
+                addcoursePage.setPrecourseid1(addcourseEntity.getPrecourseid1());
+                addcoursePage.setPrecourseid2(addcourseEntity.getPrecourseid2());
+                addcoursePage.setPrecourseid3(addcourseEntity.getPrecourseid3());
+                addcoursePage.setPrecourseid4(addcourseEntity.getPrecourseid4());
                 /*BeanUtils.copyProperties(addcourseEntity, addcoursePage);*/
                 addcoursePageList.add(addcoursePage);
             }

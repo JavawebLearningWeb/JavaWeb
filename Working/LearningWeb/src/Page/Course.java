@@ -14,7 +14,7 @@ public class Course {
     }
 
     public void setCnum(int cnum) {
-        cnum = cnum;
+        this.cnum = cnum;
     }
 
     public CoursePage getCp() {

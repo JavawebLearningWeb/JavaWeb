@@ -12,6 +12,13 @@ public class CoursePage {
     private String teacherid;
     private String introduction;
     private String picture;
+    private String kind;
+
+    public String getKind() {
+        return kind;
+    }
+
+    public void setKind(String kind) {this.kind = kind;}
 
     public String getIntroduction() {
         return introduction;

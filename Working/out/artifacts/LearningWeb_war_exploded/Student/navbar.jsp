@@ -12,13 +12,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MAPS|淘课-基于知识地图的多元化学习网站</title>
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css"  href="../css/bootstrap.css">
+    <link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
     <!-- fontawsome -->
     <script src="https://use.fontawesome.com/61a9ff3a07.js"></script>
 
-    <!-- Stylesheet
-    ================================================== -->
-    <link rel="stylesheet" type="text/css"  href="../css/style.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css"  href="../css/navbar.css">
 
     <script type="text/javascript" src="../js/modernizr.custom.js"></script>
 
@@ -49,9 +48,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="StuBaseInfo.jsp">学生信息管理</a></li>
-                <li><a href="#">Your item</a></li>
-                <li><a href="#">Your item</a></li>
+                <li><a href="stu_home.jsp">Home</a></li>
+                <li><a href="#">Course</a></li>
+                <li><a href="#">Teacher</a></li>
+                <li><a href="StuBaseInfo.jsp">About</a></li>
+                <li><a href="#">Contact</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your items<strong class="caret"></strong></a>
                     <ul class="dropdown-menu">
@@ -85,7 +86,7 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 <!-- Javascripts
 ================================================== -->
