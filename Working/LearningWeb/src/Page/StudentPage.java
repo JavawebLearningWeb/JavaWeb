@@ -58,7 +58,7 @@ public class StudentPage {
         this.name = name;
     }
 
-    public Date getBirthday() {
+    public   Date getBirthday() {
         return birthday;
     }
 

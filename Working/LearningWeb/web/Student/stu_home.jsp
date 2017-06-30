@@ -23,9 +23,11 @@
 
     <title>我的课程</title>
     <%@include file="navbar.jsp" %>
+    <%@include file="config.jsp"%>
 </head>
 <body>
 <div class="row clearfix">
+
     <div class="col-md-1 column">
     </div>
     <div class="col-md-9 column">
@@ -41,61 +43,30 @@
         </div>
         <div id="show_course">
             <div class="container-fluid proj-bottom">
+
                 <div class="row">
-                    <div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-                        <a href="#"><img src="../img/book-1623578_1280.jpg" alt="#" class="img-responsive">
-                            <h3>Course One</h3>
-                            <span>View Course</span>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-                        <a href="#"><img src="../img/book-1623578_1280.jpg" alt="#" class="img-responsive">
-                            <h3>Course One</h3>
-                            <span>View Course</span>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-                        <a href="#"><img src="../img/book-1623578_1280.jpg" alt="#" class="img-responsive">
-                            <h3>Course One</h3>
-                            <span>View Course</span>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-                        <a href="#"><img src="../img/book-1623578_1280.jpg" alt="#" class="img-responsive">
-                            <h3>Course One</h3>
-                            <span>View Course</span>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-                        <a href="#"><img src="../img/book-1623578_1280.jpg" alt="#" class="img-responsive">
-                            <h3>Course One</h3>
-                            <span>View Course</span>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-                        <a href="#"><img src="../img/book-1623578_1280.jpg" alt="#" class="img-responsive">
-                            <h3>Course One</h3>
-                            <span>View Course</span>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-                        <a href="#"><img src="../img/book-1623578_1280.jpg" alt="#" class="img-responsive">
-                            <h3>Course One</h3>
-                            <span>View Course</span>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-                        <a href="#"><img src="../img/book-1623578_1280.jpg" alt="#" class="img-responsive">
-                            <h3>Course One</h3>
-                            <span>View Course</span>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-                        <a href="#"><img src="../img/book-1623578_1280.jpg" alt="#" class="img-responsive">
-                            <h3>Course One</h3>
-                            <span>View Course</span>
-                        </a>
-                    </div>
+                    <c:forEach  var="i" begin="0" end="${sessionScope.selectedcourses.count}" step="1">
+                        <c:if test="${i!=sessionScope.selectedcourses.count}">
+                            <div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
+                                <a href="../ChooseCourse?courseid=${sessionScope.selectedcourses.coursePages[i].id}"><img src="${sessionScope.selectedcourses.coursePages[i].picture}" alt="#" class="img-responsive">
+                                    <p> 课程名称： ${sessionScope.selectedcourses.coursePages[i].name}</p>
+                                    <p> 课程介绍： ${sessionScope.selectedcourses.coursePages[i].introduction}</p>
+                                    <p> 进度:${sessionScope.selectedcourses.finishpersentage[i]}%</p>
+
+                                    <span>View Course</span>
+                                </a>
+                            </div>
+
+                        </c:if>
+
+                    </c:forEach>
+
+
+
+
+
+
+
             <center><ul class="pagination">
                 <li>
                     <a href="#">Prev</a>
@@ -123,7 +94,7 @@
     </div>
 </div>
     <div class="col-md-2 column">
-            /* 这个地方你随便用什么方式把已选课程数量，已学习时长，上次学到课程（做一个连接到上次课程）显示出来，后期我再改样式*/
+           <p> 你已经选修${sessionScope.selectedcourses.count}门课
         </div>
 </div>
 

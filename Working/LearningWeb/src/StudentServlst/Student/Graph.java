@@ -1,11 +1,9 @@
 package StudentServlst.Student;
 
+import DAO.AssociationDAO;
 import DAO.ChapterDAO;
 import DAO.ProgressDAO;
-import Page.ChapterPage;
-import Page.CoursePage;
-import Page.ProgressPage;
-import Page.StudentPage;
+import Page.*;
 
 import java.util.ArrayList;
 
@@ -17,8 +15,15 @@ public class Graph {
     private CoursePage coursePage;
     private ArrayList<ChapterPage> chapterPageArrayList;
     private  int [] finishchapter;//完成章节信息表
-    private  int chaptercount;
-    int [][] grap;
+    private  int chaptercount;//总的章节数
+    int [][] graph;
+
+
+
+
+    public void setGraph(int[][] graph) {
+        this.graph = graph;
+    }
 
     public Graph(StudentPage studentPage, CoursePage coursePage) {
         this.studentPage = studentPage;
@@ -26,13 +31,20 @@ public class Graph {
         ChapterDAO chapterDAO=new ChapterDAO();
         chapterPageArrayList= (ArrayList<ChapterPage>) chapterDAO.GetAllByColumn("courseid",coursePage.getId());
         //获取全部的章节信息
+
         chaptercount=chapterPageArrayList.size();
-        grap=new int[chaptercount][chaptercount];//创建二维矩阵
+
         finishchapter=new int[chaptercount];//完成章节的信息表
         createfinished();//将以及完成的章节进行记录
+       setGraph();//将知识地图进行矩阵变化
+        Pai();//按照要求排序
+
+
 
     }
-
+    public int[][] getGraph() {
+        return graph;
+    }
     public StudentPage getStudentPage() {
         return studentPage;
     }
@@ -65,15 +77,35 @@ public class Graph {
         this.chaptercount = chaptercount;
     }
 
-    public int[][] getGrap() {
-        return grap;
+
+
+    public void setGraph() {
+        graph=new int[chaptercount][chaptercount];//创建二维矩阵
+        for (int i=0;i<chaptercount;i++)
+        {
+            for (int j=0;j<chaptercount;j++)
+            {
+                graph[i][j]=0;
+            }
+        }
+        AssociationDAO associationDAO=new AssociationDAO();
+        ChapterDAO chapterDAO=new ChapterDAO();
+        for (int i=0;i<chaptercount;i++)
+        {
+            ChapterPage chapterPageA=chapterPageArrayList.get(i);
+            ArrayList<AssociationPage> associationPages= (ArrayList<AssociationPage>) associationDAO.GetAllByColumn("prochapterid",
+                    chapterPageArrayList.get(i).getId());
+            for (int j=0;j<associationPages.size();j++)
+            {
+               ChapterPage chapterPageB=chapterDAO.GetById(associationPages.get(j).getChapterid());
+               graph[Integer.valueOf(chapterPageA.getNumber())-1 ][Integer.valueOf(chapterPageB.getNumber())-1]=1;
+            }
+
+        }
+
     }
 
-    public void setGrap(int[][] grap) {
-        this.grap = grap;
-    }
-
-    public void createfinished(){
+    public void createfinished(){//记录以及完成的章节信息表
         for (int i=0;i<chaptercount;i++)
         {
             finishchapter[i]=0;
@@ -91,5 +123,35 @@ public class Graph {
                 }
             }
         }
+    }
+    public int[] getFinishchapter() {
+        return finishchapter;
+    }
+
+    public void setFinishchapter(int[] finishchapter) {
+        this.finishchapter = finishchapter;
+    }
+
+    public void   Pai(){//对chapterlist进行排序
+        int flag;
+        ChapterPage chapterPage;
+        int j=0;
+        int i=0;
+        for( i=0;i<chaptercount;i++)
+        { flag=i;
+            for( j=i+1;j<chaptercount;j++)
+            {
+                if(Integer.valueOf(chapterPageArrayList.get(j).getNumber())<Integer.valueOf(chapterPageArrayList.get(flag).getNumber()))
+                {
+                    flag=j;
+                }
+
+            }
+            chapterPage=chapterPageArrayList.get(i);
+            chapterPageArrayList.set(i,chapterPageArrayList.get(flag));
+            chapterPageArrayList.set(flag,chapterPage);
+
+        }
+
     }
 }

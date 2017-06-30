@@ -52,7 +52,7 @@
                 <li><a href="#">Course</a></li>
                 <li><a href="#">Teacher</a></li>
                 <li><a href="StuBaseInfo.jsp">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="../homepage.html">Exit</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your items<strong class="caret"></strong></a>
                     <ul class="dropdown-menu">

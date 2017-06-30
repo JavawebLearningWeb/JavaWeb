@@ -40,4 +40,5 @@ public class ChapterPage {
     public void setNumber(String number) {
         this.number = number;
     }
+
 }

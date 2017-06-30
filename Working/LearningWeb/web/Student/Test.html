@@ -3,14 +3,14 @@
 <head>
     <title>Hello Qunee for HTML5</title>
     <meta charset="utf-8">
+    <div style="height: 500px;" id="canvas"/>
+    <script src="http://demo.qunee.com/lib/qunee-min.js"></script>
 </head>
 <body>
-<div style="height: 500px;" id="canvas"/>
-<script src="http://demo.qunee.com/lib/qunee-min.js"></script>
+
 <script>
     var graph = new Q.Graph("canvas");
-
-    var nodes = [];
+     var nodes=[];
     function createNode(name){
         var node = graph.createNode(name);
         node.image="img/model.png";
@@ -20,19 +20,22 @@
     }
     function createRandomEdge(from,to){
 
-
-            graph.createEdge(from, to);
+        return   graph.createEdge(from, to);
 
     }
 
-    var node1=createNode("余豪");
-    var node2=createNode("马灿");
-    
+    var node=new Array(3);
+      node[1] =createNode("余豪");
+      node[2]=createNode("马灿");
+   node[3]=createNode("许文娟");
+
+    createRandomEdge(node[2],node[3]);
+
     var layouter = new Q.SpringLayouter(graph);
-    layouter.repulsion = 50;
-    layouter.attractive = 0.5;
-    layouter.elastic = 5;
-   layouter.start();
+    layouter.repulsion = 70;
+    layouter.attractive = 0.1;
+    layouter.elastic = 7;
+    layouter.start();
 
 
 </script>

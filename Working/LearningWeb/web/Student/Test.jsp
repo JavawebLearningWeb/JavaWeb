@@ -1,4 +1,7 @@
-<%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="net.sf.json.JSON" %>
+<%@ page import="net.sf.json.JSONArray" %>
+<%@ page import="net.sf.json.JSONObject" %><%--
   Created by IntelliJ IDEA.
   User: ycbhci
   Date: 2017/6/27
@@ -9,14 +12,23 @@
 <html>
 <head>
     <title>Title</title>
+    <script type="text/javascript">
+        var  i=100;
+        function yea() {
+            alert(i);
+        }
+      window.onload=yea;
+    </script>
 </head>
 <body>
-<form action="../Test" method="post" enctype="multipart/form-data" class="form-horizontal">
-    <input type="file" name="filename" class="form-control">
-    <input type="submit" class="btn btn-success">
 
 
-</form>
+
+
+
+
+
+
 
 
 </body>

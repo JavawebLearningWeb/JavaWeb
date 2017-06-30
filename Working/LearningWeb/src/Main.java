@@ -1,3 +1,5 @@
+import DAO.LearnDAO;
+import Page.LearnPage;
 import Util.HibernateUtils;
 import org.hibernate.HibernateException;
 import org.hibernate.Metamodel;
@@ -8,6 +10,7 @@ import org.hibernate.cfg.Configuration;
 
 import javax.persistence.metamodel.EntityType;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -33,8 +36,8 @@ public class Main {
 
     public static void main(final String[] args) throws Exception {
 
-
-
+        LearnDAO learnDAO=new LearnDAO();
+        ArrayList<LearnPage> learnPages= (ArrayList<LearnPage>) learnDAO.GetAllByColumn("studentid","1");
         final Session session = getSession();
         try {
             System.out.println("querying all the managed entities...");

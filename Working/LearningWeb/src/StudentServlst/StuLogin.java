@@ -2,6 +2,7 @@ package StudentServlst;
 
 import DAO.StudentDAO;
 import Page.StudentPage;
+import StudentServlst.Student.SelectedCourses;
 
 import javax.jws.WebService;
 import javax.servlet.annotation.WebServlet;
@@ -26,7 +27,11 @@ public class StuLogin extends javax.servlet.http.HttpServlet {
             {
 
                 request.getSession().setAttribute("studentpage",studentPage);
+                SelectedCourses selectedcourses =new SelectedCourses(studentPage);
+                request.getSession().setAttribute("selectedcourses",selectedcourses);
                 response.sendRedirect("Student/stu_home.jsp");
+
+
             }
             else {
                 response.sendRedirect("Student/login.jsp");
