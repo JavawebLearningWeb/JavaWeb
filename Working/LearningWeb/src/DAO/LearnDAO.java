@@ -2,6 +2,7 @@ package DAO;
 
 import Entity.LearnEntity;
 import Page.LearnPage;
+import Page.TeacherPage;
 import Util.HibernateUtils;
 import org.hibernate.Session;
 
@@ -12,7 +13,24 @@ import java.util.List;
  * Created by 79333 on 2017/6/29.
  */
 public class LearnDAO {
+
+    public boolean IsOk(LearnPage learnPage){
+        boolean flag = true;
+        LearnDAO learnDAO = new LearnDAO();
+        List<LearnPage> learnPageList = new ArrayList<>();
+        learnPageList = learnDAO.GetAll();
+        for(int i=0;i<learnPageList.size();i++){
+            LearnPage s = new LearnPage();
+            s = learnPageList.get(i);
+            if(s.getCourseid().equals(learnPage.getCourseid())&&s.getStudentid().equals(learnPage.getStudentid()))
+                return false;
+        }
+        return true;
+    }
+
     public boolean Add(LearnPage learnPage) {
+        if(!IsOk(learnPage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {
@@ -63,6 +81,8 @@ public class LearnDAO {
     }
 
     public boolean Update(LearnPage learnPage) {
+        if(!IsOk(learnPage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {

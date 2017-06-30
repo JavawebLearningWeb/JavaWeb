@@ -2,6 +2,7 @@ package DAO;
 
 import Entity.AddcourseEntity;
 import Page.AddcoursePage;
+import Page.CoursePage;
 import Util.HibernateUtils;
 import org.hibernate.Session;
 
@@ -13,8 +14,25 @@ import java.util.List;
  */
 public class AddcourseDAO {
 
+    public boolean IsOk(AddcoursePage addcoursePage){
+        boolean flag = true;
+        CourseDAO courseDAO = new CourseDAO();
+        AddcourseDAO addcourseDAO = new AddcourseDAO();
+        List<CoursePage> coursePageList = new ArrayList<>();
+        coursePageList = courseDAO.GetAll();
+        for(int i=0;i<coursePageList.size();i++){
+            CoursePage s = new CoursePage();
+            s = coursePageList.get(i);
+            if(s.getTeacherid().equals(addcoursePage.getTeacherid())&&s.getName().equals(addcoursePage.getCourse()))
+                return false;
+        }
+        return true;
+    }
+
     public boolean Add(AddcoursePage addcoursePage) {
 
+        if(!IsOk(addcoursePage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {
@@ -67,6 +85,8 @@ public class AddcourseDAO {
     }
 
     public boolean Update(AddcoursePage addcoursePage) {
+        if(!IsOk(addcoursePage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {

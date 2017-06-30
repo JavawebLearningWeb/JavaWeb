@@ -4,6 +4,7 @@ import Entity.ExamEntity;
 import Entity.ExamEntity;
 import Page.ExamPage;
 import Page.ExamPage;
+import Page.ExamPage;
 import Util.HibernateUtils;
 import org.hibernate.Session;
 
@@ -15,7 +16,23 @@ import java.util.List;
  * Created by 79333 on 2017/6/24.
  */
 public class ExamDAO  {
+    public boolean IsOk(ExamPage examPage){
+        boolean flag = true;
+        ExamDAO examDAO = new ExamDAO();
+        List<ExamPage> examPageList = new ArrayList<>();
+        examPageList = examDAO.GetAll();
+        for(int i=0;i<examPageList.size();i++){
+            ExamPage s = new ExamPage();
+            s = examPageList.get(i);
+            if(s.getAddress().equals(examPage.getAddress()))
+                return false;
+        }
+        return true;
+    }
+    
     public boolean Add(ExamPage examPage) {
+        if(!IsOk(examPage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {
@@ -65,6 +82,8 @@ public class ExamDAO  {
     }
 
     public boolean Update(ExamPage examPage) {
+        if(!IsOk(examPage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {

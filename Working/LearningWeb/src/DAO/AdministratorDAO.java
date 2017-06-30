@@ -5,6 +5,7 @@ import Entity.AdministratorEntity;
 import Entity.AdministratorEntity;
 import Page.AdministratorPage;
 import Page.AdministratorPage;
+import Page.AdministratorPage;
 import Util.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -18,11 +19,26 @@ import java.util.List;
  * Created by 79333 on 2017/6/24.
  */
 public class AdministratorDAO{
+
+    public boolean IsOk(AdministratorPage administratorPage){
+        boolean flag = true;
+        AdministratorDAO administratorDAO = new AdministratorDAO();
+        List<AdministratorPage> administratorPageList = new ArrayList<>();
+        administratorPageList = administratorDAO.GetAll();
+        for(int i=0;i<administratorPageList.size();i++){
+            AdministratorPage s = new AdministratorPage();
+            s = administratorPageList.get(i);
+            if(s.getUsername().equals(administratorPage.getUsername()))
+                return false;
+        }
+        return true;
+    }
     /*
     增加
      */
     public boolean Add(AdministratorPage administratorPage) {
-
+        if(!IsOk(administratorPage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {
@@ -77,6 +93,8 @@ public class AdministratorDAO{
 更改
  */
     public boolean Update(AdministratorPage administratorPage) {
+        if(!IsOk(administratorPage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {

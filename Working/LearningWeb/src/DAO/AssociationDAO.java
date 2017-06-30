@@ -2,6 +2,7 @@ package DAO;
 
 import Entity.AssociationEntity;
 import Page.AssociationPage;
+import Page.AssociationPage;
 import Util.HibernateUtils;
 import org.hibernate.Session;
 
@@ -12,7 +13,25 @@ import java.util.List;
  * Created by 79333 on 2017/6/29.
  */
 public class AssociationDAO {
+    public boolean IsOk(AssociationPage associationPage){
+        boolean flag = true;
+        AssociationDAO associationDAO = new AssociationDAO();
+        List<AssociationPage> associationPageList = new ArrayList<>();
+        associationPageList = associationDAO.GetAll();
+        for(int i=0;i<associationPageList.size();i++){
+            AssociationPage s = new AssociationPage();
+            s = associationPageList.get(i);
+            if(s.getChapterid().equals(associationPage.getChapterid())&&s.getProchapterid().equals(associationPage.getProchapterid()))
+                return false;
+            if(s.getChapterid().equals(associationPage.getProchapterid())&&s.getProchapterid().equals(associationPage.getChapterid()))
+                return false;
+        }
+        return true;
+    }
+    
     public boolean Add(AssociationPage associationPage) {
+        if(!IsOk(associationPage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {
@@ -63,6 +82,8 @@ public class AssociationDAO {
     }
 
     public boolean Update(AssociationPage associationPage) {
+        if(!IsOk(associationPage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {

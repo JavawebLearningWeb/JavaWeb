@@ -4,6 +4,7 @@ import Entity.CourseEntity;
 import Entity.CourseEntity;
 import Page.CoursePage;
 import Page.CoursePage;
+import Page.CoursePage;
 import Util.HibernateUtils;
 import org.hibernate.Session;
 import java.util.ArrayList;
@@ -13,8 +14,24 @@ import java.util.List;
  * Created by 79333 on 2017/6/24.
  */
 public class CourseDAO {
-    public boolean Add(CoursePage coursePage) {
 
+    public boolean IsOk(CoursePage coursePage){
+        boolean flag = true;
+        CourseDAO courseDAO = new CourseDAO();
+        List<CoursePage> coursePageList = new ArrayList<>();
+        coursePageList = courseDAO.GetAll();
+        for(int i=0;i<coursePageList.size();i++){
+            CoursePage s = new CoursePage();
+            s = coursePageList.get(i);
+            if(s.getTeacherid().equals(coursePage.getTeacherid())&&s.getName().equals(coursePage.getName()))
+                return false;
+        }
+        return true;
+    }
+    
+    public boolean Add(CoursePage coursePage) {
+        if(!IsOk(coursePage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {
@@ -67,6 +84,8 @@ public class CourseDAO {
     }
 
     public boolean Update(CoursePage coursePage) {
+        if(!IsOk(coursePage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {

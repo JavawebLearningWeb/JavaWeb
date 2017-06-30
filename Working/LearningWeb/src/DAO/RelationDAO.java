@@ -2,6 +2,7 @@ package DAO;
 
 import Entity.RelationEntity;
 import Page.RelationPage;
+import Page.RelationPage;
 import Util.HibernateUtils;
 import org.hibernate.Session;
 
@@ -13,7 +14,25 @@ import java.util.List;
  */
 public class RelationDAO {
 
+    public boolean IsOk(RelationPage relationPage){
+        boolean flag = true;
+        RelationDAO relationDAO = new RelationDAO();
+        List<RelationPage> relationPageList = new ArrayList<>();
+        relationPageList = relationDAO.GetAll();
+        for(int i=0;i<relationPageList.size();i++){
+            RelationPage s = new RelationPage();
+            s = relationPageList.get(i);
+            if(s.getCourseid().equals(relationPage.getCourseid())&&s.getFrontcourseid().equals(relationPage.getFrontcourseid()))
+                return false;
+            if(s.getCourseid()==relationPage.getFrontcourseid()&&s.getFrontcourseid()==relationPage.getCourseid())
+                return false;
+        }
+        return true;
+    }
+
     public boolean Add(RelationPage relationPage) {
+        if(!IsOk(relationPage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {
@@ -64,6 +83,8 @@ public class RelationDAO {
     }
 
     public boolean Update(RelationPage relationPage) {
+        if(!IsOk(relationPage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {

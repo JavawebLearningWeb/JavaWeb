@@ -4,6 +4,7 @@ import Entity.TeacherEntity;
 import Entity.TeacherEntity;
 import Page.TeacherPage;
 import Page.TeacherPage;
+import Page.TeacherPage;
 import Util.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,8 +21,27 @@ public class TeacherDAO {
     /*
  * 增加
  */
+    public boolean IsOk(TeacherPage teacherPage){
+        boolean flag = true;
+        TeacherDAO teacherDAO = new TeacherDAO();
+        List<TeacherPage> teacherPageList = new ArrayList<>();
+        teacherPageList = teacherDAO.GetAll();
+        for(int i=0;i<teacherPageList.size();i++){
+            TeacherPage s = new TeacherPage();
+            s = teacherPageList.get(i);
+            if(s.getUsername().equals(teacherPage.getUsername()))
+                return false;
+        }
+        return true;
+    }
+
+
+    
     public boolean Add(TeacherPage teacherPage) {
 
+        TeacherDAO teacherDAO = new TeacherDAO();
+        if(!teacherDAO.IsOk(teacherPage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {
@@ -54,6 +74,7 @@ public class TeacherDAO {
     }
 
     public boolean Del(TeacherPage teacherPage){
+
         boolean flag = false;
         Session session = null;
         try {
@@ -76,6 +97,9 @@ public class TeacherDAO {
     }
 
     public boolean Update(TeacherPage teacherPage) {
+        TeacherDAO teacherDAO = new TeacherDAO();
+        if(!teacherDAO.IsOk(teacherPage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {

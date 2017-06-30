@@ -26,7 +26,7 @@ public class TeacherPage {
     public String getIntroduction() {return introduction;}
 
     public void setIntroduction(String introduction) {
-        this.id = introduction;
+        this.introduction = introduction;
     }
 
     public String getId() {

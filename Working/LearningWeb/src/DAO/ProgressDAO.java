@@ -6,6 +6,7 @@ import Entity.ProgressEntity;
 import Page.ProgressPage;
 import Page.ProgressPage;
 import Page.ProgressPage;
+import Page.ProgressPage;
 import Util.HibernateUtils;
 import org.hibernate.Session;
 
@@ -17,7 +18,23 @@ import java.util.List;
  * Created by 79333 on 2017/6/24.
  */
 public class ProgressDAO {
+    public boolean IsOk(ProgressPage progressPage){
+        boolean flag = true;
+        ProgressDAO progressDAO = new ProgressDAO();
+        List<ProgressPage> progressPageList = new ArrayList<>();
+        progressPageList = progressDAO.GetAll();
+        for(int i=0;i<progressPageList.size();i++){
+            ProgressPage s = new ProgressPage();
+            s = progressPageList.get(i);
+            if(s.getCourseid().equals(progressPage.getCourseid())&&s.getStudentid().equals(progressPage.getStudentid())&&s.getChapterid().equals(s.getChapterid()))
+                return false;
+        }
+        return true;
+    }
+    
     public boolean Add(ProgressPage progressPage) {
+        if(!IsOk(progressPage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {
@@ -68,6 +85,8 @@ public class ProgressDAO {
     }
 
     public boolean Update(ProgressPage progressPage) {
+        if(!IsOk(progressPage))
+            return false;
         boolean flag = false;
         Session session = null;
         try {
