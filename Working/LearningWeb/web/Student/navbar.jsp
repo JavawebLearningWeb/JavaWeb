@@ -48,10 +48,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="stu_home.jsp">Home</a></li>
+                <li><a href="stu_home.jsp">主页面</a></li>
                 <li><a href="#">Course</a></li>
                 <li><a href="#">Teacher</a></li>
-                <li><a href="StuBaseInfo.jsp">About</a></li>
+                <li><a href="StuBaseInfo.jsp">学生信息管理</a></li>
                 <li><a href="../homepage.html">Exit</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your items<strong class="caret"></strong></a>

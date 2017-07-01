@@ -1,5 +1,7 @@
 import DAO.LearnDAO;
+import DAO.RelationDAO;
 import Page.LearnPage;
+import Page.RelationPage;
 import Util.HibernateUtils;
 import org.hibernate.HibernateException;
 import org.hibernate.Metamodel;
@@ -36,6 +38,14 @@ public class Main {
 
     public static void main(final String[] args) throws Exception {
 
+
+        RelationDAO relationDAO=new RelationDAO();
+        ArrayList<RelationPage> list= (ArrayList<RelationPage>) relationDAO.GetAllByColumn("frontcourseid","2");
+        if (list.size()==0)
+        {
+            System.out.print("空操作");
+        }
+        System.out.print("nihao");
         LearnDAO learnDAO=new LearnDAO();
         ArrayList<LearnPage> learnPages= (ArrayList<LearnPage>) learnDAO.GetAllByColumn("studentid","1");
         final Session session = getSession();

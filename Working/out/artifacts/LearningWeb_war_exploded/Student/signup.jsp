@@ -11,9 +11,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up|淘课-基于知识地图的多元化学习网站</title>
-    <link rel='stylesheet prefetch' href='css/sign_log/reset.css'>
-    <link rel="stylesheet" type="text/css" href="css/sign_log/default.css">
-    <link rel="stylesheet" type="text/css" href="css/sign_log/styles.css">
+    <link rel='stylesheet prefetch' href='../css/sign_log/reset.css'>
+    <link rel="stylesheet" type="text/css" href="../css/sign_log/default.css">
+    <link rel="stylesheet" type="text/css" href="../css/sign_log/styles.css">
     <%@include file="config.jsp" %>
     <%@include file="navbar.jsp" %>
     <script type="text/javascript">
@@ -57,7 +57,7 @@
 
             <h3 class="fs-subtitle">Step One</h3>
             <h2 class="fs-title">Register account</h2>
-            <input type="text" name="username" placeholder="Your Real Name"/>
+            <input type="text" name="username" placeholder="Your Username"/>
             <input id="password1" type="password" name="password" placeholder="Password" onfocus="Clear()"/>
 
             <input id="password2" type="password" name="re-password" placeholder="Confirm your password"
@@ -99,9 +99,9 @@
     </form>
 
 </article>
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>
-<script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="../js/jquery-2.1.1.min.js"><\/script>')</script>
+<script src="../js/jquery.easing.1.3.js" type="text/javascript"></script>
 <script>
     var current_fs, next_fs, previous_fs;
     var left, opacity, scale;

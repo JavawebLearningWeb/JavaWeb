@@ -11,7 +11,8 @@ import java.util.ArrayList;
  * Created by 16689 on 2017/6/29.
  */
 public class Graph {
-    private StudentPage studentPage;
+    private StudentPage studentPage;//学生的信息
+    private  ChapterPage learninngchapterPage;//正在学习的章节
     private CoursePage coursePage;
     private ArrayList<ChapterPage> chapterPageArrayList;//全部的章节信息
     private int[] finishchapter;//完成章节信息表
@@ -233,4 +234,15 @@ public class Graph {
         this.learncount = learncount;
     }
 
+    public ChapterPage getLearninngchapterPage() {
+        return learninngchapterPage;
+    }
+
+    public void setLearninngchapterPage(ChapterPage learninngchapterPage) {
+        this.learninngchapterPage = learninngchapterPage;
+    }
+
+    public void setLearnchapter(ArrayList<ChapterPage> learnchapter) {
+        this.learnchapter = learnchapter;
+    }
 }
