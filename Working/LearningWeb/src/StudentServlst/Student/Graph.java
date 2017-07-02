@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Graph {
     private StudentPage studentPage;//学生的信息
     private  ChapterPage learninngchapterPage;//正在学习的章节
-    private CoursePage coursePage;
+    private CoursePage coursePage;//课程信息
     private ArrayList<ChapterPage> chapterPageArrayList;//全部的章节信息
     private int[] finishchapter;//完成章节信息表
     private int chaptercount;//总的章节数
@@ -245,4 +245,53 @@ public class Graph {
     public void setLearnchapter(ArrayList<ChapterPage> learnchapter) {
         this.learnchapter = learnchapter;
     }
+
+
+    public void passexam(int grade) //通过测试后进行一些操作
+    {
+        int location=0;//记录本章节在线性表中的位置
+        for (int i=0;i<chaptercount;i++)
+        {
+            if(chapterPageArrayList.get(i).getId().equals(learninngchapterPage.getId()))
+            {
+                location=i;
+                finishchapter[i]=1;
+                break;
+            }
+        }//修改状态位
+        finishedchapter.add(learninngchapterPage);
+        finishedcount++; //修改已经完成的列表信息
+
+        for (int i=0;i<learncount;i++)
+        {
+            if (learninngchapterPage.getId().equals(learnchapter.get(i).getId()))//找到通过章节在可完成章节中的位置并踢出
+            {
+                learnchapter.remove(i);
+                learncount--;
+                break;
+            }
+        }
+
+        for (int i=0;i<chaptercount;i++) //将通过测试的章节的下一节点加入可学习的列表
+        {
+            if(graph[location][i]==1)
+            {
+                learnchapter.add(chapterPageArrayList.get(i));
+                learncount++;
+            }
+        }
+
+        //进行数据库操作
+        ProgressDAO progressDAO=new ProgressDAO();
+        ProgressPage progressPage=new ProgressPage();
+        progressPage.setChapterid(learninngchapterPage.getId());
+        progressPage.setCourseid(coursePage.getId());
+        progressPage.setExamscore(String.valueOf(grade));
+        progressPage.setStudentid(studentPage.getId());
+        progressDAO.Add(progressPage);
+        learninngchapterPage=null;    //清空正在学习列表
+
+
+    }
+
 }

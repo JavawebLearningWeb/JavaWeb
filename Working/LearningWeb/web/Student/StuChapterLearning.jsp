@@ -63,7 +63,7 @@
         <div class="col-md-2 column">
             <h3 class=" color-picker"> 快来测试</h3>
 
-              <h4><a href="../Test"> 进行章节测试</a></h4>
+              <h4><a href="../StuTest"> 进行章节测试</a></h4>
 
         </div>
     </div>

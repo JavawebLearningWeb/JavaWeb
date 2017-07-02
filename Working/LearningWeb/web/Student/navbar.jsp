@@ -49,7 +49,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="stu_home.jsp">主页面</a></li>
-                <li><a href="#">Course</a></li>
+                <li><a href="../AddCourseServlet">添加课程</a></li>
                 <li><a href="#">Teacher</a></li>
                 <li><a href="StuBaseInfo.jsp">学生信息管理</a></li>
                 <li><a href="../homepage.html">Exit</a></li>

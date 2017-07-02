@@ -1,6 +1,8 @@
 import DAO.LearnDAO;
+import DAO.ProgressDAO;
 import DAO.RelationDAO;
 import Page.LearnPage;
+import Page.ProgressPage;
 import Page.RelationPage;
 import Util.HibernateUtils;
 import org.hibernate.HibernateException;
@@ -39,29 +41,12 @@ public class Main {
     public static void main(final String[] args) throws Exception {
 
 
-        RelationDAO relationDAO=new RelationDAO();
-        ArrayList<RelationPage> list= (ArrayList<RelationPage>) relationDAO.GetAllByColumn("frontcourseid","2");
-        if (list.size()==0)
-        {
-            System.out.print("空操作");
-        }
-        System.out.print("nihao");
-        LearnDAO learnDAO=new LearnDAO();
-        ArrayList<LearnPage> learnPages= (ArrayList<LearnPage>) learnDAO.GetAllByColumn("studentid","1");
-        final Session session = getSession();
-        try {
-            System.out.println("querying all the managed entities...");
-            final Metamodel metamodel = session.getSessionFactory().getMetamodel();
-            for (EntityType<?> entityType : metamodel.getEntities()) {
-                final String entityName = entityType.getName();
-                final Query query = session.createQuery("from " + entityName);
-                System.out.println("executing: " + query.getQueryString());
-                for (Object o : query.list()) {
-                    System.out.println("  " + o);
-                }
-            }
-        } finally {
-            session.close();
-        }
+        ProgressDAO progressDAO=new ProgressDAO();
+        ProgressPage progressPage=new ProgressPage();
+        progressPage.setChapterid("2");
+        progressPage.setCourseid("1");
+        progressPage.setExamscore(String.valueOf(100));
+        progressPage.setStudentid("1");
+        progressDAO.Add(progressPage);
     }
 }
