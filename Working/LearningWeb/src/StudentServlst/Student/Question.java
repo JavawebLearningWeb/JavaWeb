@@ -133,7 +133,7 @@ public class Question {
                 right++;
             }
         }
-        grade=(right/answer.length)*100;
+        grade= (int) ((right*1.0/answer.length)*100);
 
     }
 

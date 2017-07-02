@@ -43,7 +43,7 @@ public class Main {
 
         ProgressDAO progressDAO=new ProgressDAO();
         ProgressPage progressPage=new ProgressPage();
-        progressPage.setChapterid("2");
+        progressPage.setChapterid("4");
         progressPage.setCourseid("1");
         progressPage.setExamscore(String.valueOf(100));
         progressPage.setStudentid("1");

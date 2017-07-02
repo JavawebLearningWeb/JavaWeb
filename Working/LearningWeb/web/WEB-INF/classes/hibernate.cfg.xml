@@ -27,7 +27,7 @@
         <mapping class="Entity.StudentEntity"/>
         <mapping class="Entity.TeacherEntity"/>
         <mapping class="Entity.AddcourseEntity"/>
-      <mapping class="Entity.AssociationEntity"/>
+       <mapping class="Entity.AssociationEntity"/>
         <mapping class="Entity.LearnEntity"/>
         <mapping class="Entity.RelationEntity"/>
     </session-factory>

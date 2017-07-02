@@ -24,7 +24,7 @@ public class RelationDAO {
             s = relationPageList.get(i);
             if(s.getCourseid().equals(relationPage.getCourseid())&&s.getFrontcourseid().equals(relationPage.getFrontcourseid()))
                 return false;
-            if(s.getCourseid()==relationPage.getFrontcourseid()&&s.getFrontcourseid()==relationPage.getCourseid())
+            if(s.getCourseid().equals(relationPage.getFrontcourseid())&&s.getFrontcourseid().equals(relationPage.getCourseid()))
                 return false;
         }
         return true;

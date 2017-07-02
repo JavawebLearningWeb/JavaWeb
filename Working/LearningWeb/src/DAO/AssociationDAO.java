@@ -21,9 +21,11 @@ public class AssociationDAO {
         for(int i=0;i<associationPageList.size();i++){
             AssociationPage s = new AssociationPage();
             s = associationPageList.get(i);
-            if(s.getChapterid().equals(associationPage.getChapterid())&&s.getProchapterid().equals(associationPage.getProchapterid()))
+            if(s.getChapterid().equals(associationPage.getChapterid()))
+                if(s.getProchapterid().equals(associationPage.getProchapterid()))
                 return false;
-            if(s.getChapterid().equals(associationPage.getProchapterid())&&s.getProchapterid().equals(associationPage.getChapterid()))
+            if(s.getChapterid().equals(associationPage.getProchapterid()))
+                if(s.getProchapterid().equals(associationPage.getChapterid()))
                 return false;
         }
         return true;

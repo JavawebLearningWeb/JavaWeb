@@ -26,8 +26,10 @@ public class ProgressDAO {
         for(int i=0;i<progressPageList.size();i++){
             ProgressPage s = new ProgressPage();
             s = progressPageList.get(i);
-            if(s.getCourseid().equals(progressPage.getCourseid())&&s.getStudentid().equals(progressPage.getStudentid())&&s.getChapterid().equals(s.getChapterid()))
-                return false;
+            if(s.getCourseid().equals(progressPage.getCourseid()))
+                if(s.getStudentid().equals(progressPage.getStudentid()))
+                    if(s.getChapterid().equals(progressPage.getChapterid()))
+                        return false;
         }
         return true;
     }
