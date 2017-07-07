@@ -1,4 +1,3 @@
-@import url(http://fonts.useso.com/css?family=Montserrat);
 
 /*basic reset*/
 * {margin: 0; padding: 0;}
@@ -15,6 +14,8 @@ body {
 }
 
 
+
+
 /*form styles*/
 #msform {
 	width: 500px;
@@ -25,7 +26,7 @@ body {
 #msform fieldset {
 	background: transparent;
 	padding: 20px 30px;
-	
+
 	box-sizing: border-box;
 	width: 80%;
 	margin: 0 10%;
@@ -138,8 +139,6 @@ body {
 	background: #27AE60;
 	color: white;
 }
-
-
 
 
 

@@ -1,51 +1,35 @@
 <%--
   Created by IntelliJ IDEA.
-  User: ycbhci
-  Date: 2017/6/24
-  Time: 13:28
+  User: Amos
+  Date: 2017/6/28
+  Time: 00:37
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <%@include file="config.jsp"%>
-    <style>
-        body{
-
-            margin-TOP:100PX;
-            background:#3d71b8 url(img/lighthouse-2225445.jpg);
-            background-position: center 0;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-            -webkit-background-size: cover;
-        }
-    </style>
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/museo.css">
-    <link rel="stylesheet" href="css/font-sl.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up|淘课-基于知识地图的多元化学习网站</title>
+    <link rel='stylesheet prefetch' href="css/sign_log/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/sign_log/default.css">
+    <link rel="stylesheet" type="text/css" href="css/sign_log/styles.css">
+    <%@include file="navbar.jsp"%>
 </head>
 <body>
-<div class="container ">
-
-
-    <form class="form-signin" name="form1" method="post" action="checklogin.jsp">
-        <h2 class="form-signin-heading">Login to my account</h2>
-        <input name="myusername" id="myusername" type="text" class="form-control" placeholder="Your Account" autofocus>
-        <input name="mypassword" id="mypassword" type="password" class="form-control" placeholder="Password">
-        <!-- The checkbox remember me is not implemented yet...
-        <label class="checkbox">
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-        -->
-        <button name="Submit" id="submit" class="btn btn-default btn-primary btn-block" type="submit">Sign in</button>
-        <a  name="submitbtn" id="submitbtn" class="btn-sec" type="submit">Forgot Password ?</a>
-        <div id="message"></div>
+<div class="htmleaf-content">
+    <!-- multistep form -->
+    <form id="msform" action="../StuLogin" method="post">
+        <!-- fieldsets -->
+        <fieldset>
+            <h2 class="fs-title">Log to  my account</h2>
+            <input name="myusername" id="myusername" type="text"  placeholder="Account" autofocus>
+            <input name="mypassword" id="mypassword" type="password" placeholder="Password">
+            <font color="red" size="3px">${rresult}</font><br><br>
+            <input type="submit" name="submit" class="next action-button" value="Submit" />
+            <input type="reset" name="reste" class="next action-button1" value="Reset" />
+        </fieldset>
     </form>
-
-</div> <!-- /container --><br><br><br><br><br><br>
-<h3 class="form-signup-heading">Don't have an account ? <a href="signup.jsp">Signup</a></h3>
-<script src="js/login.js"></script>
-<script src="js/forgetpassword.js"></script>
+</div>
 </body>
 </html>

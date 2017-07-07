@@ -12,6 +12,7 @@
 <head>
     <title>Title</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/61a9ff3a07.js"></script>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>

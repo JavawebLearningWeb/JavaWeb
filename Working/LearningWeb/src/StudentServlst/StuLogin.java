@@ -34,12 +34,15 @@ public class StuLogin extends javax.servlet.http.HttpServlet {
 
             }
             else {
-                response.sendRedirect("Student/login.jsp");
+                  String message="<p>密码错误，请重新输入！</p>";
+                  request.getSession().setAttribute("rresult",message);
+                response.sendRedirect("../login.jsp");
             }
         }
         else
-        {
-            response.sendRedirect("Student/login.jsp");
+        { String message="<p>账号不存在！</p>";
+            request.getSession().setAttribute("rresult",message);
+            response.sendRedirect("../login.jsp");
         }
         //数据库的操作
 

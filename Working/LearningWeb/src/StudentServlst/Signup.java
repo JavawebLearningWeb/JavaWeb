@@ -30,7 +30,7 @@ public class Signup extends HttpServlet {
         major=request.getParameter("profession");
         grade=request.getParameter("grade");
         status=request.getParameter("education background");
-        picture="stuimg/女孩2.jpg";//默认照片的路径
+        picture="stuimg/deafault_avatar.png.jpg";//默认照片的路径
 
 
 
@@ -48,7 +48,7 @@ public class Signup extends HttpServlet {
 
         StudentDAO studentDAO=new StudentDAO();
         studentDAO.Add(studentPage);
-        response.sendRedirect("Student/login.jsp");
+        response.sendRedirect("../login.jsp");
 
 
 

@@ -12,7 +12,7 @@
     <script type="text/javascript">
         function info() {
             setInterval("load()",3000);
-            alert("抱歉考试失败，点击确认后5秒后跳转学习页面，继续加油");
+            alert("抱歉测试未通过，点击确认5秒后跳转学习页面");
 
         }
         function load() {

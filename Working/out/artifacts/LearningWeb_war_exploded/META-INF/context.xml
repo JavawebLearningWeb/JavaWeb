@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context reloadable="true">
+<Resource
+name="jdbc/learningweb"
+type="javax.sql.DataSource"
+maxActive="30"
+maxIdle="5"
+username="root"
+maxWait="5000"
+driverClassName="com.mysql.jdbc.Driver"
+password="3434"
+url="jdbc:mysql://localhost:3306/learningweb"/>
+</Context>
